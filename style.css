@@ -1,419 +1,262 @@
+/* ============================================
+   1. CORE VARIABLES & BASE STYLES
+   ============================================ */
 :root {
---primary: #10b981;
---primary-dark: #064e3b;
---bg-light: #f3f4f6;
---white: #ffffff;
+    --primary: #10b981;
+    --primary-dark: #064e3b;
+    --bg-light: #f3f4f6;
+    --white: #ffffff;
+    --text-main: #374151;
+    --text-muted: #6b7280;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 body {
-font-family: 'Inter', sans-serif;
-margin: 0;
-background: var(--bg-light);
-color: #374151;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
-/* NAVBAR */
+/* ============================================
+   2. NAVIGATION
+   ============================================ */
 .navbar {
-background: white;
-border-bottom: 1px solid #eee;
-padding: 18px 0;
-position: sticky;
-top: 0;
-z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #eee;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 90%;
-margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
 }
 
 .nav-links {
-display: flex;
-gap: 45px;
-list-style: none;
-margin: 0;
-padding: 0;
+    display: flex;
+    gap: 45px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
-text-decoration: none;
-font-weight: 700;
-color: #1f2937;
-font-size: 1.1rem;
-transition: 0.3s;
+    text-decoration: none;
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 
 .nav-links a:hover { color: var(--primary); }
 
-.user-icon {
-font-size: 1.7rem;
-color: #1f2937;
-transition: 0.3s;
-cursor: pointer;
-}
-
-.user-icon:hover { color: var(--primary); transform: scale(1.1); }
-
 .main-logo { height: 70px; transition: .3s; cursor: pointer; }
-.zoom-logo:hover { transform: scale(1.15); }
+.zoom-logo:hover { transform: scale(1.1); }
 
-/* HERO */
+/* ============================================
+   3. HERO SECTION
+   ============================================ */
 .hero {
-background: linear-gradient(rgba(6,78,59,.85),rgba(6,78,59,.85)),
-url('https://via.placeholder.com/1600x600');
-color: white;
-padding: 120px 0 160px; /* Modified to allow space for cards */
-text-align: center;
+    background: linear-gradient(rgba(6,78,59,.85),rgba(6,78,59,.85)),
+    url('https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    color: white;
+    padding: 100px 0 140px;
+    text-align: center;
 }
 
 .search-box {
-display: flex;
-background: white;
-border-radius: 12px;
-overflow: hidden;
-max-width: 500px;
-margin: 30px auto 0;
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 30px auto 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.search-box input { flex: 1; border: none; padding: 15px; outline: none; }
-.search-box button { background: var(--primary); color: white; border: none; padding: 0 25px; cursor: pointer; font-weight: bold; }
+.search-box input { flex: 1; border: none; padding: 18px; outline: none; font-size: 1rem; }
+.search-box button { background: var(--primary); color: white; border: none; padding: 0 30px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
 
-/* CARDS */
-.team-grid, .results-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 30px;
+/* ============================================
+   4. NEW RECTANGLE LIST LAYOUT (Search Results)
+   ============================================ */
+.results-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.team-card {
-background: white;
-padding: 25px;
-border-radius: 18px;
-text-align: center;
-box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-transition: .3s;
-position: relative;
+.product-rect-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f0f1f3;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-/* AUTH */
-.login-wrapper { display: flex; justify-content: center; align-items: center; min-height: 80vh; }
-.login-card { background: white; padding: 40px; border-radius: 25px; width: 100%; max-width: 400px; box-shadow: 0 15px 35px rgba(0,0,0,.1); text-align: center; }
-.input-field { text-align: left; margin-bottom: 15px; }
-.input-field input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-
-.auth-btn { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: .3s; margin-top: 10px; }
-.auth-btn:hover { background: var(--primary-dark); }
-
-.back-btn { width: 100%; padding: 12px; margin-top: 10px; background: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 8px; font-weight: 600; cursor: pointer; transition: .25s; }
-.back-btn:hover { background: var(--primary); color: white; }
-
-/* WATCHLIST */
-.wish-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: white;
-padding: 15px;
-margin-bottom: 10px;
-border-radius: 12px;
-border: 1px solid #eee;
+.product-rect-card:hover {
+    transform: translateX(8px);
+    border-color: var(--primary);
 }
 
+/* Left: Title & Store info */
+.rect-info { flex: 2; }
+.rect-title { font-size: 1.2rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; }
+.rect-retailer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: #f3f4f6;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Middle: AI Match Logic */
+.rect-ai-stats {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    border-left: 1px solid #f0f1f3;
+    border-right: 1px solid #f0f1f3;
+}
+.ai-match-badge { display: block; font-weight: 800; font-size: 0.95rem; margin-bottom: 2px; }
+.ai-percent { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Right: Price & Actions */
+.rect-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    min-width: 160px;
+}
+
+.rect-price { font-size: 1.6rem; font-weight: 900; color: #10b981; }
+
+/* Square Buttons Group */
+.rect-button-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* Unified Square Button Style with Green Borders */
+.btn-square-action {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    /* Updated Border */
+    border: 2px solid var(--primary); /* Constant Green Border */
+    background: #ffffff;             /* Clean White Background */
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-main);         /* Dark grey icon */
+}
+
+/* Hover Effect */
+.btn-square-action:hover {
+    background: var(--primary);      /* Fills with green on hover */
+    color: #ffffff;                  /* Icon turns white on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+
+/* ============================================
+   5. DASHBOARD & MISC
+   ============================================ */
 .container { width: 85%; margin: 60px auto; }
 .page { display: none; }
 .active { display: block; }
-.role { display: block; color: var(--primary); font-weight: 600; margin-top: 5px; }
 
-/* --- Loader Styles --- */
+.dashboard-grid {
+    display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px;
+}
+@media(min-width: 768px) { .dashboard-grid { grid-template-columns: 1fr 2fr; } }
+
+.dashboard-section {
+    background: white; padding: 25px; border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.history-item {
+    display: inline-block; background: #f3f4f6; color: var(--text-main);
+    padding: 8px 16px; border-radius: 20px; font-size: 0.85rem;
+    margin: 5px; cursor: pointer; border: 1px solid #e5e7eb; transition: 0.2s;
+}
+.history-item:hover { background: var(--primary); color: white; }
+
+/* ============================================
+   6. LOADER & MODALS
+   ============================================ */
 .loader-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 9999;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
 }
 .spinner {
-  border: 5px solid #f3f3f3; border-top: 5px solid var(--primary);
-  border-radius: 50%; width: 50px; height: 50px;
-  animation: spin 1s linear infinite;
+    border: 5px solid #f3f3f3; border-top: 5px solid var(--primary);
+    border-radius: 50%; width: 50px; height: 50px;
+    animation: spin 1s linear infinite;
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* --- Empty State Styles --- */
-.empty-state {
-  text-align: center; padding: 40px 20px; color: #9ca3af;
-}
-.empty-state i {
-  font-size: 3.5rem; color: #d1d5db; margin-bottom: 15px;
-}
-.empty-state p { font-size: 1.1rem; margin: 0;}
-
-/* --- Dashboard Grid --- */
-.dashboard-grid {
-  display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px;
-}
-@media(min-width: 768px) {
-  .dashboard-grid { grid-template-columns: 1fr 2fr; }
-}
-.dashboard-section {
-  background: white; padding: 25px; border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* --- History Pills --- */
-.history-item {
-  display: inline-block; background: #f3f4f6; color: #374151;
-  padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;
-  margin: 5px 5px 5px 0; cursor: pointer; transition: 0.2s;
-  border: 1px solid #e5e7eb;
-}
-.history-item:hover { background: var(--primary); color: white; border-color: var(--primary); }
-
-/* --- Action Buttons in Product Card --- */
-.card-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-.action-btn {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-.btn-store { background: #3b82f6; color: white; }
-.btn-store:hover { background: #2563eb; }
-
-.btn-history { background: #f59e0b; color: white; }
-.btn-history:hover { background: #d97706; }
-
-/* --- Modal Styles (Price History) --- */
 .modal-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 10000;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10000;
 }
 .modal-content {
-  background: white; padding: 25px; border-radius: 15px;
-  width: 90%; max-width: 600px; position: relative;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: white; padding: 30px; border-radius: 20px;
+    width: 90%; max-width: 550px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
-.close-modal {
-  position: absolute; top: 15px; right: 20px;
-  font-size: 1.8rem; cursor: pointer; color: #6b7280;
-  transition: 0.2s;
+.chart-wrapper {
+    margin-top: 15px;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid #eee;
 }
-.close-modal:hover { color: #ef4444; }
-#modal-product-title { margin-top: 0; color: #1f2937; }
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #9ca3af; }
 
-/* --- Features Cards Section (Overlapping Hero) --- */
+/* ============================================
+   7. FEATURES CARDS
+   ============================================ */
 .features-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  width: 90%;
-  max-width: 1000px;
-  margin: -80px auto 50px;
-  position: relative;
-  z-index: 10;
-  flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 20px;
+    width: 90%; max-width: 1100px; margin: -60px auto 40px;
+    position: relative; z-index: 10; flex-wrap: wrap;
 }
-
 .feature-card {
-  background: white;
-  padding: 35px 20px;
-  border-radius: 16px;
-  text-align: center;
-  flex: 1;
-  min-width: 250px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white; padding: 30px; border-radius: 20px;
+    text-align: center; flex: 1; min-width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
-
-.feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.feature-icon {
-  font-size: 2.8rem;
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
-.feature-card h3 {
-  margin: 0 0 12px;
-  color: #1f2937;
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-.feature-card p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-/* ============================================ */
-/* 🔥 NEW CLEAN RESULT STYLE */
-/* ============================================ */
-/* 🔥 CLEAN RESULT STYLE (LIKE YOUR IMAGE) */
-/* ============================================ */
-
-.simple-card {
-  background: #f3f4f6;
-  border-radius: 20px;
-  padding: 25px;
-  width: 100%;          /* 🔥 خليها تاخذ كل العرض */
-  margin: 20px auto;
-}
-
-/* TITLE */
-.card-header h2 {
-  margin: 0 0 15px;
-  color: #1f2937;
-}
-
-/* EACH RESULT BLOCK */
-.match-item {
-  background: #e5e7eb;
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-/* PRODUCT NAME */
-.match-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #1f2937;
-}
-
-/* STORE TEXT */
-.store {
-  color: #6b7280;
-  margin-top: 5px;
-}
-
-/* PRICE */
-.price {
-  color: #10b981;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-/* BUTTONS */
-.card-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.action-btn {
-  width: 100%;
-  height: 50px;              /* 🔥 هذا أهم سطر */
-  padding: 0 15px;           /* 🔥 يمنع اختلاف الطول */
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  box-sizing: border-box;
-}
-
-/* BUTTON COLORS */
-.btn-store {
-  background: #3b82f6;
-  color: white;
-}
-
-.btn-store:hover {
-  background: #2563eb;
-}
-
-.btn-history {
-  background: #f59e0b;
-  color: white;
-}
-
-.btn-history:hover {
-  background: #d97706;
-}
-
-.btn-watch {
-  background: #10b981;
-  color: white;
-}
-
-.btn-watch:hover {
-  background: #059669;
-}
-.price-expensive {
-  color: #ef4444;
-}
-
-/* PRICE DIFF */
-.price-diff {
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-/* CONFIDENCE BADGE */
-.confidence-badge {
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: 6px;
-  color: white;
-  width: fit-content;
-  margin-bottom: 5px;
-}
-
-.confidence-high {
-  background: #10b981;
-}
-
-.confidence-medium {
-  background: #f59e0b;
-}
-
-.confidence-low {
-  background: #ef4444;
-}
-
-/* BUTTONS */
-.view-btn {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: #3b82f6;
-  color: white;
-  text-decoration: none;
-  font-size: 0.75rem;
-  margin-top: 5px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.view-btn:hover {
-  background: #2563eb;
-}
+.feature-card:hover { transform: translateY(-10px); }
+.feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
