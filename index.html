@@ -87,7 +87,12 @@
 
         <section id="results-page" class="page">
             <div class="container">
-                <h2>Search Results</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Search Results</h2>
+                    <button onclick="showPage('home')" class="back-btn" style="width: auto; padding: 8px 16px; border: 1px solid var(--primary); background: white; color: var(--primary);">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Search
+                    </button>
+                </div>
                 <div id="product-list" class="results-grid"></div>
             </div>
         </section>
