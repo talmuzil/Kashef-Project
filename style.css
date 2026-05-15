@@ -260,3 +260,226 @@ body {
 }
 .feature-card:hover { transform: translateY(-10px); }
 .feature-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+/* ============================================
+   8. ABOUT US PAGE
+   ============================================ */
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.about-header h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+.team-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 4px solid var(--primary);
+    transition: transform 0.3s;
+}
+.team-card:hover {
+    transform: translateY(-5px);
+}
+.team-card h4 {
+    margin: 10px 0 5px;
+    color: var(--text-main);
+}
+.role {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   9. FORMS & BUTTONS
+   ============================================ */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-card h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-top: 0;
+}
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input-field input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.input-field input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+.auth-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+}
+.auth-btn:hover {
+    background: var(--primary-dark);
+}
+.back-btn {
+    background: #f3f4f6;
+    color: var(--text-main);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+}
+.back-btn:hover {
+    background: #e5e7eb;
+}
+
+/* تنسيق أيقونة المستخدم (تسجيل الدخول) */
+.user-icon {
+    font-size: 1.8rem; /* هذا الرقم يتحكم بحجم الأيقونة، يمكنك زيادته إلى 2rem أو أكثر لو رغبتِ */
+    color: #1f2937; /* لون مطابق لباقي الروابط */
+    transition: 0.3s ease; /* لجعل الحركة سلسة */
+    display: flex;
+    align-items: center;
+}
+
+.user-icon:hover {
+    color: var(--primary); /* يتغير للون الأخضر عند تمرير الفأرة */
+    transform: scale(1.1); /* يكبر حجمها قليلاً عند تمرير الفأرة */
+}
+
+/* وسام أفضل سعر */
+.best-price-badge {
+    background-color: var(--primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+/* اسم المتجر بشكل بارز */
+.retailer-label {
+    display: inline-block;
+    background: #f0fdf4;
+    color: var(--primary-dark);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border: 1px solid #d1fae5;
+}
+
+/* زر تنبيه السعر */
+.price-alert-btn {
+    background: white;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.price-alert-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* حاوية الرسم البياني */
+.price-chart-container {
+    margin-top: 15px;
+    height: 150px;
+    width: 100%;
+}
+/* ============================================
+   10. PRODUCT IMAGE IN RESULTS
+   ============================================ */
+.rect-image-wrapper {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rect-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-rect-card:hover .rect-product-img {
+    transform: scale(1.05);
+}
+.rect-image-wrapper {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+}
+
+.rect-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-rect-card:hover .rect-product-img {
+    transform: scale(1.05);
+}
